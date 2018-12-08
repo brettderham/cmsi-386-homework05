@@ -1,23 +1,29 @@
 module Warmup
   (change
-  , stripQuotes)
+  , stripQuotes
+  -- , sumOfCubesOfOdds
+  , swapAdjacents)
   where
 
 
-change :: Int
+change :: Int -> Either String (Int, Int, Int, Int)
 change amount =
     if amount < 0 then
-        Left "Amount can be negative"
+        Left "amount cannot be negative"
     else
         let
-            (quarter, afterQuarters) = amount 'divMod' 25
-            (dimes, afterDimes) = afterQuarters 'divMod' 10
-            (nickels, pennies) = afterDimes 'divMod' 5
+            (quarters, afterQuarters) = amount `divMod` 25
+            (dimes, afterDimes) = afterQuarters `divMod` 10
+            (nickels, pennies) = afterDimes `divMod` 5
           in
         Right (quarters, dimes, nickels, pennies)
 
+stripQuotes s = filter (\c -> c /= '\'' && c /= '"') s
+
+-- sumOfCubesOfOdds :: Int -> Int -> [a] -> [a]
+-- sumOfCubesOfOdds (h:t) : if (not . even) h then h*h*h + (sumOfCubesOfOdds t) else sumOfCubesOfOdds t
 
 
-
-powers :: Double
-powers value =
+swapAdjacents [] = []
+swapAdjacents xs@[_] = xs
+swapAdjacents (a : b : xs) = b : a : swapAdjacents xs
