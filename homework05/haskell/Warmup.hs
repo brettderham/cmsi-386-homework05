@@ -9,7 +9,8 @@ module Warmup
   , volume
   , surfaceArea)
   where
-
+import Data.Char (toLower, toUpper)
+import Data.List
 
 change :: Int -> Either String (Int, Int, Int, Int)
 change amount =
