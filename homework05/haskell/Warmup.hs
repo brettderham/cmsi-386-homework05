@@ -1,7 +1,8 @@
 module Warmup
   (change
   , stripQuotes
---   , powers
+  , firstUppercasedOverLengthFive
+  , powers
   , sumOfCubesOfOdds
   , swapAdjacents
   , Shape (Box, Sphere)
@@ -24,9 +25,14 @@ change amount =
 
 stripQuotes s = filter (\c -> c /= '\'' && c /= '"') s
 
+firstUppercasedOverLengthFive :: [String] -> Maybe String
+firstUppercasedOverLengthFive [] = Nothing
+firstUppercasedOverLengthFive (x:xs)
+   | (length x) > 5 = Just (map toUpper x)
+   | otherwise = firstUppercasedOverLengthFive xs
 
--- powers = 1 : map double powers
---    where double n = n*(n+1)
+powers :: Num a => a -> [a]
+powers n = (n^0) : map (* n) (powers n)
 
 sumOfCubesOfOdds :: Integral n => [n] -> n
 sumOfCubesOfOdds [] = 0

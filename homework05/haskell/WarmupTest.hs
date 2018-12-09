@@ -15,20 +15,20 @@ fixture =
     , ( "stripQuotes works for no quotes", stripQuotes "dog" == "dog" )
     , ( "stripQuotes removes stuff", stripQuotes "''\"\"a'''" == "a" )
     , ( "stripQuotes does not remove backslashes", stripQuotes "a\\b" == "a\\b" )
-    -- , ( "firstUppercasedOverLengthFive returns nothing on empty"
-    --   , firstUppercasedOverLengthFive [] == Nothing
-    --   )
-    -- , ( "firstUppercasedOverLengthFive returns nothing if none"
-    --   , firstUppercasedOverLengthFive ["a", "bcdef"] == Nothing
-    --   )
-    -- , ( "firstUppercasedOverLengthFive works"
-    --   , firstUppercasedOverLengthFive ["a", "abcdef", "g"] == Just "ABCDEF"
-    --   )
-    -- , ( "powers of 2", take 10 (powers 2) == [1,2,4,8,16,32,64,128,256,512])
-    -- , ( "powers of 3", take 5 (powers 3) == [1,3,9,27,81])
-    -- , ( "powers of 1000000", (powers 1000000 !! 9) == 10^54)
-    -- , ( "powers of -1", take 10 (powers (-1)) == [1,-1,1,-1,1,-1,1,-1,1,-1])
-    -- , ( "powers of 0.5", take 5 (powers (0.5)) == [1,0.5,0.25,0.125,0.0625])
+    , ( "firstUppercasedOverLengthFive returns nothing on empty"
+      , firstUppercasedOverLengthFive [] == Nothing
+      )
+    , ( "firstUppercasedOverLengthFive returns nothing if none"
+      , firstUppercasedOverLengthFive ["a", "bcdef"] == Nothing
+      )
+    , ( "firstUppercasedOverLengthFive works"
+      , firstUppercasedOverLengthFive ["a", "abcdef", "g"] == Just "ABCDEF"
+      )
+    , ( "powers of 2", take 10 (powers 2) == [1,2,4,8,16,32,64,128,256,512])
+    , ( "powers of 3", take 5 (powers 3) == [1,3,9,27,81])
+    , ( "powers of 1000000", (powers 1000000 !! 9) == 10^54)
+    , ( "powers of -1", take 10 (powers (-1)) == [1,-1,1,-1,1,-1,1,-1,1,-1])
+    , ( "powers of 0.5", take 5 (powers (0.5)) == [1,0.5,0.25,0.125,0.0625])
     , ( "socoo works for empty", sumOfCubesOfOdds [] == 0)
     , ( "socoo works for single even", sumOfCubesOfOdds [8] == 0)
     , ( "socoo works for single odd", sumOfCubesOfOdds [3] == 27)
